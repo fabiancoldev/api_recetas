@@ -20,8 +20,8 @@ const recetaSchema = new mongoose.Schema({
   },
   // Estado de la receta (Activa/Inactiva)
   estado: {
-    type: Boolean,
-    default: true,
+    type: String,
+    default: "Activa",
   },
   // URL de la imagen de la receta
   imagenUrl: {
