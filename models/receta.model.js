@@ -20,8 +20,14 @@ const recetaSchema = new mongoose.Schema({
   },
   // Estado de la receta (Activa/Inactiva)
   estado: {
+    type: Boolean,
+    default: true,
+  },
+  // URL de la imagen de la receta
+  imagenUrl: {
     type: String,
-    default: "Activa",
+    required: false,
+    default: '',
   },
   // Categoría de la receta (ej: Postres, Platos principales, etc.)
   categoria: {
