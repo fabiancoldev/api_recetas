@@ -1,2 +1,2 @@
-import www from './bin/www';
+require("./bin/www");
 
