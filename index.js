@@ -18,10 +18,15 @@ app.use(cors());
 // Conexión a la base de datos
 conectDB();
 
+// Ruta raíz para la API (agregada para evitar 'Cannot GET /')
+app.get("/", (req, res) => {
+  res.send("Bienvenido a la API de recetas. Usa /recetas para acceder a las recetas.");
+});
+
 // Configuración de rutas
 app.use("/", recetaRoutes);
 
-// Solo inicia el servidor si está en desarrollo
+// Solo iniciar el servidor si está en entorno local
 if (process.env.NODE_ENV !== "production") {
   const PORT = process.env.PORT || 3000;
   app.listen(PORT, () => {
@@ -29,5 +34,5 @@ if (process.env.NODE_ENV !== "production") {
   });
 }
 
-// Exportar la aplicación para Vercel
+// Exportar la aplicación para Vercel (esto es importante para que funcione el despliegue en Vercel)
 export default app;

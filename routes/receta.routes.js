@@ -12,26 +12,18 @@ import {
 
 const router = express.Router();
 
+// Ruta raíz para la API
+router.get("/", (req, res) => {
+  res.send("Bienvenido a la API de recetas. Usa /recetas para acceder a las recetas.");
+});
+
 // Definición de rutas para el CRUD de recetas
-// GET - Obtener todas las recetas
 router.get("/recetas", getRecetas);
-
-// POST - Crear una nueva receta
 router.post("/recetas", postRecetas);
-
-// GET - Obtener una receta por su ID
 router.get("/recetas/:id", getRecetaXId);
-
-// GET - Buscar recetas por nombre
 router.get("/buscar/:nombre", getRecetaNombre);
-
-// PATCH - Actualizar una receta
 router.patch("/recetas/:id", patchReceta);
-
-// PATCH - Inactivar una receta
 router.patch("/recetas/:id/inactivar", inactivarReceta);
-
-// DELETE - Eliminar una receta
 router.delete("/recetas/:id", deleteReceta);
 
 export default router;
