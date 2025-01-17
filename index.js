@@ -21,5 +21,13 @@ conectDB();
 // Configuración de rutas
 app.use("/", recetaRoutes);
 
-// Exportar la aplicación para que Vercel la use
+// Solo inicia el servidor si está en desarrollo
+if (process.env.NODE_ENV !== "production") {
+  const PORT = process.env.PORT || 3000;
+  app.listen(PORT, () => {
+    console.log(`Servidor corriendo en http://localhost:${PORT}`);
+  });
+}
+
+// Exportar la aplicación para Vercel
 export default app;
